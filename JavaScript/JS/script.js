@@ -367,30 +367,47 @@ func(menu)
 
 // Задача №3-----------------------------------------------------------------------------
 /*
-Написать объект ladder - объект, который позволяет подниматься вверх и спускаться. Пример работы должен быть таким:
-
-ladder.showStep(); // 0 (выводит ступеньку на который мы находимся)
-ladder.up(); 
-ladder.up();
-ladder.showStep(); // 2
-ladder.down();
-ladder.showStep(); // 1
+Написать объект ladder - объект, который позволяет подниматься и спускаться. Пример работы должен быть таким:
 */
+
 let ladder = {
     step: 0,
     up: function () {
-        this.step++
+        ladder.step++
     },
     down: function () {
-        this.step--
+        ladder.step--
     },
     showSteps: function () {
-        alert(this.step)
+        alert(ladder.step)
     }
 }
 
-document.querySelector('#up'), onclick = ladder.up()
-document.querySelector('#down').onclick = ladder.down()
-document.querySelector('#show').onclick = ladder.showSteps()
+const up = document.querySelector('#up')
+const down = document.querySelector('#down')
+const show = document.querySelector('#show')
+up.onclick = ladder.up
+down.onclick = ladder.down
+show.onclick = ladder.showSteps
 
+
+// КОНСТРУКТОР
+/*
+const num = 5
+
+const myApp = {}
+
+myApp.events = {
+    isProgrammer: true,
+    func: function (number) {
+        return number *= 2
+    }
+}
+
+const person = function (name) {
+    console.log(`Меня зовут ${name}`)
+}
+const person1 = new person('Максим')
+const person2 = new person('Женя')
+*/
 
