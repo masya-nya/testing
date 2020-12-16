@@ -369,7 +369,7 @@ func(menu)
 /*
 Написать объект ladder - объект, который позволяет подниматься и спускаться. Пример работы должен быть таким:
 */
-
+/*
 let ladder = {
     step: 0,
     up: function () {
@@ -389,8 +389,7 @@ const show = document.querySelector('#show')
 up.onclick = ladder.up
 down.onclick = ladder.down
 show.onclick = ladder.showSteps
-
-
+*/
 // КОНСТРУКТОР
 /*
 const num = 5
