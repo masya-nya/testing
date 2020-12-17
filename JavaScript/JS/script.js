@@ -434,6 +434,7 @@ buttonTag.onclick = alertHello
 Выводим кнопку с текстом "Заполнить" и незаполненный инпут, при клике на кнопку, заполняем 
 инпут текстом "test@email.ru"
 */
+/*
 const classBody = document.querySelector('#body')
 const inputButton = document.createElement('input')
 const textInput = () => {
@@ -447,3 +448,151 @@ classBody.appendChild(inputButton)
 inputButton.onclick = textInput
 
 console.log(inputButton)
+*/
+// Задача №3----------------------------------------------------------------------------------
+/*
+Выводим кнопку и инпут, в инпуте можно ввести любой и текст и при нажатии на кнопку, 
+выводится алерт с текстом "Вы ввели 'текст инпута'" или "Вы ничего не ввели в поле".
+*/
+/*
+const func = () => {
+    const item = inputTag.value
+    if (item === '') {
+        alert(`Вы ничего не ввели`)
+    } else {
+        alert(`Вы ввели: ${item}`)
+    }
+}
+
+const classBody = document.querySelector('#body')
+const buttonTag = document.createElement('input')
+buttonTag.type = 'button'
+buttonTag.value = 'КНОПКА'
+const inputTag = document.createElement('input')
+inputTag.type = 'text'
+classBody.appendChild(inputTag)
+classBody.appendChild(buttonTag)
+
+buttonTag.onclick = func
+*/
+
+// Задача №4----------------------------------------------------------------------------------
+/*
+Выводим кнопку с текстом "Поменять" и два инпута, при клике на кнопку инпуты меняются 
+своим введеным текстом
+*/
+/*
+const func = () => {
+    let or = 0
+    or = inputTag1.value
+    inputTag1.value = inputTag2.value
+    inputTag2.value = or
+}
+
+const classBody = document.querySelector('#body')
+const buttonTag = document.createElement('input')
+buttonTag.type = 'button'
+buttonTag.value = 'Кнопка'
+const inputTag1 = document.createElement('input')
+inputTag1.type = 'text'
+const inputTag2 = document.createElement('input')
+inputTag2.type = 'text'
+
+classBody.appendChild(inputTag1)
+classBody.appendChild(inputTag2)
+classBody.appendChild(buttonTag)
+
+buttonTag.onclick = func
+*/
+
+// Задача №5----------------------------------------------------------------------------------
+/*
+Выводим две кнопки "заблокировать" и "разблокировать" и инпут. Одна из них блокирует 
+инпут с помощью атрибута disabled, а другая разблокирует
+*/
+/*
+const func1 = () => {
+    inputTag.setAttribute('disabled', 'disabled')
+}
+const func2 = () => {
+    inputTag.removeAttribute('disabled')
+}
+
+const classBody = document.querySelector('#body')
+const buttonTag1 = document.createElement('input')
+buttonTag1.type = 'button'
+buttonTag1.value = 'Заблокировать'
+const buttonTag2 = document.createElement('input')
+buttonTag2.type = 'button'
+buttonTag2.value = 'Разблокировать'
+const inputTag = document.createElement('input')
+inputTag.type = 'text'
+
+classBody.appendChild(buttonTag1)
+classBody.appendChild(inputTag)
+classBody.appendChild(buttonTag2)
+
+buttonTag1.onclick = func1
+buttonTag2.onclick = func2
+*/
+
+// Задача №6----------------------------------------------------------------------------------
+/*
+Вывести любой квадрат и кнопку "скрыть квадрат". Когда мы нажимаем на скрыть, 
+квадрат исчезает и текст кнопки меняется на "показать квадрат" и так можно кликать 
+сколько угодно раз.
+*/
+/*
+const body = document.querySelector('#body')
+const cube = document.createElement('div')
+const button = document.createElement('button')
+button.textContent = 'скрыть квадрат'
+cube.style.width = '50px'
+cube.style.height = '50px'
+cube.style.backgroundColor = 'blue'
+body.style.display = 'flex'
+body.style.justifyContent = 'center'
+
+body.appendChild(button)
+body.appendChild(cube)
+
+const func = () => {
+    cube.classList.toggle('block')
+    if (button.textContent === 'скрыть квадрат') {
+        button.textContent = 'показать квадрат'
+    } else {
+        button.textContent = 'скрыть квадрат'
+    }
+}
+
+button.onclick = func
+*/
+
+// Задача №6----------------------------------------------------------------------------------
+/*
+Выводим красный квадрат, при наведении на него он становиться зеленым, а когда 
+уводим курсор от него, обратно красным.
+*/
+const body = document.querySelector('#body')
+const cube = document.createElement('div')
+cube.classList.add('hover')
+cube.style.width = '50px'
+cube.style.height = '50px'
+cube.style.border = '1px solid #000'
+cube.style.backgroundColor = 'red'
+cube.style.marginRight = '5px'
+const cube2 = document.createElement('div')
+cube2.classList.add('hover2')
+cube2.style.width = '50px'
+cube2.style.height = '50px'
+cube2.style.border = '1px solid #000'
+cube2.style.backgroundColor = 'black'
+body.style.display = 'flex'
+body.style.justifyContent = 'center'
+body.appendChild(cube)
+body.appendChild(cube2)
+
+cube.setAttribute("onmouseover", "this.style.backgroundColor = 'green'")
+cube.setAttribute("onmouseout", "this.style.backgroundColor = 'red'")
+//cube.setAttribute("onmouseover", "document.querySelector('.hover2').style.backgroundColor = 'green'")
+//cube.setAttribute("onmouseout", "document.querySelector('.hover2').style.backgroundColor = 'red'")
