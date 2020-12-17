@@ -410,3 +410,40 @@ const person1 = new person('Максим')
 const person2 = new person('Женя')
 */
 
+//--------------------------------------Работа с DOM------------------------------------------
+
+// Задача №1----------------------------------------------------------------------------------
+/*
+Вывести кнопку с текстом "Привет", при нажатии на неё выводим alert c текстом "Привет Мир!"
+*/
+/*
+const classBody = document.querySelector('#body')
+const buttonTag = document.createElement('button')
+const alertHello = () => {
+    alert('Привет Мир !')
+}
+buttonTag.textContent = 'Привет'
+
+classBody.appendChild(buttonTag)
+
+buttonTag.onclick = alertHello
+*/
+
+// Задача №2----------------------------------------------------------------------------------
+/*
+Выводим кнопку с текстом "Заполнить" и незаполненный инпут, при клике на кнопку, заполняем 
+инпут текстом "test@email.ru"
+*/
+const classBody = document.querySelector('#body')
+const inputButton = document.createElement('input')
+const textInput = () => {
+    inputButton.value = "test@email.ru"
+}
+
+inputButton.type = "button"
+inputButton.value = "Заполнить"
+classBody.appendChild(inputButton)
+
+inputButton.onclick = textInput
+
+console.log(inputButton)
