@@ -606,3 +606,62 @@ cube.setAttribute("onmouseout", "this.style.backgroundColor = 'red'")
 зеленым, а старый зеленый квадрат обратно крассным и тд. (Сделать задачу так, чтобы можно было
 добавить ещё хоть 100 квадратов при этом скрипт не надо менять).
 */
+/*
+const body = document.querySelector('#body')
+const cube1 = document.createElement('div')
+const cube2 = document.createElement('div')
+const cube3 = document.createElement('div')
+const cube4 = document.createElement('div')
+const cube5 = document.createElement('div')
+const cube6 = document.createElement('div')
+const cube7 = document.createElement('div')
+const cube8 = document.createElement('div')
+body.appendChild(cube1)
+body.appendChild(cube2)
+body.appendChild(cube3)
+body.appendChild(cube4)
+body.appendChild(cube5)
+body.appendChild(cube6)
+body.appendChild(cube7)
+body.appendChild(cube8)
+body.style.display = 'flex'
+body.style.justifyContent = 'center'
+const allDivs = document.querySelectorAll('div#body > div')
+for (i = 0; i < allDivs.length; i++) {
+    allDivs[i].style.width = '50px'
+    allDivs[i].style.height = '50px'
+    allDivs[i].style.border = '1px solid #000'
+    allDivs[i].style.backgroundColor = 'red'
+    allDivs[i].style.marginRight = '5px'
+}
+const func = () => {
+    for (i = 0; i < allDivs.length; i++) {
+        if (allDivs[i].style.backgroundColor === 'green') {
+            return allDivs[i]
+        } else {
+            continue
+        }
+    }
+    return false
+}
+for (i = 0; i < allDivs.length; i++) {
+    allDivs[i].onclick = function () {
+        if (func() === false) {
+
+        } else {
+            func().style.backgroundColor = 'red'
+        }
+        this.style.backgroundColor = 'green'
+    }
+}
+*/
+
+
+// Задача №8----------------------------------------------------------------------------------
+/*
+Реализовать калькулятор. Выводим 10 кнопок цифр от 0 до 10. Кнопки: умножить, поделить,
+сложить, вычесть, вычислить. При нажатии на кнопки в любом порядке выводиться в
+отдельном блоке строка (5-4+3*2...) и при нажатии на кнопку посчитать, заменяем
+в блоке данную строку на результат её вычисления, при этом можно потом дальше
+вычислять с уже этим вычеслением.
+*/
