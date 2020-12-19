@@ -665,3 +665,88 @@ for (i = 0; i < allDivs.length; i++) {
 в блоке данную строку на результат её вычисления, при этом можно потом дальше
 вычислять с уже этим вычеслением.
 */
+/*
+const body = document.querySelector('#body')
+const number0 = document.createElement('button')
+number0.classList.add('metka')
+number0.textContent = '0'
+const number1 = document.createElement('button')
+number1.classList.add('metka')
+number1.textContent = '1'
+const number2 = document.createElement('button')
+number2.classList.add('metka')
+number2.textContent = '2'
+const number3 = document.createElement('button')
+number3.classList.add('metka')
+number3.textContent = '3'
+const number4 = document.createElement('button')
+number4.classList.add('metka')
+number4.textContent = '4'
+const number5 = document.createElement('button')
+number5.classList.add('metka')
+number5.textContent = '5'
+const number6 = document.createElement('button')
+number6.classList.add('metka')
+number6.textContent = '6'
+const number7 = document.createElement('button')
+number7.classList.add('metka')
+number7.textContent = '7'
+const number8 = document.createElement('button')
+number8.classList.add('metka')
+number8.textContent = '8'
+const number9 = document.createElement('button')
+number9.classList.add('metka')
+number9.textContent = '9'
+const plus = document.createElement('button')
+plus.classList.add('metka')
+plus.textContent = '+'
+const minus = document.createElement('button')
+minus.classList.add('metka')
+minus.textContent = '-'
+const multi = document.createElement('button')
+multi.classList.add('metka')
+multi.textContent = '*'
+const division = document.createElement('button')
+division.classList.add('metka')
+division.textContent = '/'
+const calcul = document.createElement('button')
+calcul.textContent = 'Вычислить'
+const textArea = document.createElement('input')
+textArea.type = 'text'
+const refresh = document.createElement('button')
+refresh.textContent = 'Обновить'
+
+body.appendChild(number0)
+body.appendChild(number1)
+body.appendChild(number2)
+body.appendChild(number3)
+body.appendChild(number4)
+body.appendChild(number5)
+body.appendChild(number6)
+body.appendChild(number7)
+body.appendChild(number8)
+body.appendChild(number9)
+body.appendChild(plus)
+body.appendChild(minus)
+body.appendChild(multi)
+body.appendChild(division)
+body.appendChild(calcul)
+body.appendChild(textArea)
+body.appendChild(refresh)
+
+const metka = document.querySelectorAll('.metka')
+const metka2 = document.querySelectorAll('#body')
+
+for (i = 0; i < metka.length; i++) {
+    metka[i].onclick = function () {
+        textArea.value += this.textContent
+    }
+
+}
+calcul.onclick = () => {
+    textArea.value = eval(textArea.value)
+}
+refresh.onclick = function () {
+    textArea.value = ''
+}
+*/
