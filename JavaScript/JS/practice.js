@@ -750,3 +750,48 @@ refresh.onclick = function () {
     textArea.value = ''
 }
 */
+/*
+const array = [1, 2, 3, 5, 6, 4325, 32, 345, 435]
+Array.prototype.pow = function (n) {
+    return this.map(function (i) {
+        return Math.pow(i, n)
+    })
+}
+console.log(array.pow(2))
+*/
+
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('Все идет по плану!')
+    }, 2000)
+})
+const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('Все идет по плану!')
+    }, 3000)
+})
+const promise3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('Все идет по плану!')
+    }, 4000)
+})
+
+promise1
+    .then((data) => {
+        console.log(`Data: `, data)
+        return promise2
+    })
+    .then((data) => {
+        console.log(`Data: `, data)
+        return promise3
+    })
+    .then((data) => {
+        console.log(`Data: `, data)
+    })
+    .catch((error) => {
+        console.log(`Error: `, error)
+    })
+
+Promise.all([promise1, promise2, promise3])
+    .then((allData) => console.log(allData[0], allData[1], allData[2]))
+    .catch((error) => console.log(error))
