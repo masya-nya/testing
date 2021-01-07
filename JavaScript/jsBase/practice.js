@@ -759,7 +759,7 @@ Array.prototype.pow = function (n) {
 }
 console.log(array.pow(2))
 */
-
+/*
 const promise1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('Все идет по плану!')
@@ -795,3 +795,5 @@ promise1
 Promise.all([promise1, promise2, promise3])
     .then((allData) => console.log(allData[0], allData[1], allData[2]))
     .catch((error) => console.log(error))
+
+*/

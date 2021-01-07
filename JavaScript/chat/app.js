@@ -1,4 +1,4 @@
-/*
+
 // Получаем элемент чата
 let chat = document.querySelector("#divMessages")
 // Получаем строку ввода сообщения
@@ -28,4 +28,3 @@ btnSubmit.addEventListener("click", () => {
     // Очищаем поле для ввода текста
     input.value = '';
 })
-*/
