@@ -725,6 +725,7 @@ text.addEventListener('keypress', (event) => {
     span.innerHTML = String.fromCharCode(event.which)
 })
 */
+/*
 const body = document.querySelector('#body')
 const text = document.createElement('input')
 const input = document.createElement('input')
@@ -746,7 +747,6 @@ const randomColor = () => {
     let b = Math.floor(Math.random() * (256))
     return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
 }
-/*
 text.addEventListener('click', (event) => {
     if (event.ctrlKey) {
         text.style.color = randomColor()
@@ -762,10 +762,297 @@ text.addEventListener('click', (event) => {
         text.value = 'SHIFT'
     }
 })
-*/
 input.addEventListener('keypress', (event) => {
     if (event.which == 13) {
         span.textContent = input.value
         input.value = ''
     }
 })
+*/
+//Дан ul, в нем несколько li. Под ul сделайте кнопку, по нажатию на 
+//которую в конец ul будет добавляться новый li с текстом 'пункт'. 
+//Сделайте так, чтобы при клике на каждый li, ему в конец добавлялся 
+//'!'. Это должно работать и для вновь добавленных li. Задачу решите 
+//с помощью делегирования (то есть событие должно быть навешано на ul).
+/*
+const main = document.querySelector('ul')
+const btn = document.querySelector('button')
+let selectedLI
+main.addEventListener('click', (event) => {
+    let target = event.target
+    if (target.tagName != 'LI') return
+    highlight(target)
+})
+const highlight = (li) => {
+    if (selectedLI) {
+        selectedLI.classList.remove('highlight')
+    }
+    selectedLI = li
+    selectedLI.classList.add('highlight')
+    selectedLI.textContent += '!'
+}
+btn.addEventListener('click', () => {
+    let li = document.createElement('li')
+    li.textContent = 'Пункт'
+    main.append(li)
+})
+*/
+/*
+const layer1 = document.querySelector('.layer_1')
+const layer2 = document.querySelector('.layer_2')
+const layer3 = document.querySelector('.layer_3')
+
+layer2.addEventListener('click', () => alert(`Желтый ${event.eventPhase}`), true)
+layer3.addEventListener('click', () => alert(`Красный ${event.eventPhase}`))
+*/
+const ball = document.querySelector('.football_ball')
+const field = document.querySelector('.football_field')
+
+/*
+const info = document.querySelector('.info')
+const rectInfo = ball.getBoundingClientRect()
+
+field.addEventListener('click', (event) => {
+    let fieldCoords = field.getBoundingClientRect()
+    let ballCoords = {
+        top: event.clientY - fieldCoords.top - field.clientTop - ball.offsetHeight / 2,
+        left: event.clientX - fieldCoords.left - field.clientLeft - ball.offsetWidth / 2
+    }
+    if (ballCoords.top < 0) ballCoords.top = 0
+    if (ballCoords.left < 0) ballCoords.left = 0
+    if (ballCoords.left + ball.offsetWidth > field.clientWidth) {
+        ballCoords.left = field.clientWidth - ball.offsetWidth
+    }
+    if (ballCoords.top + ball.offsetHeight > field.clientHeight) {
+        ballCoords.top = field.clientHeight - ball.offsetHeight
+    }
+    ball.style.left = ballCoords.left + 'px'
+    ball.style.top = ballCoords.top + 'px'
+
+    console.log(event.clientY, fieldCoords.top, field.clientTop, ball.offsetHeight / 2)
+    console.log(event.clientX, fieldCoords.left, field.clientLeft, ball.offsetWidth / 2)
+    info.innerHTML = `Top: ${rectInfo.top}<br>
+                  Left: ${rectInfo.left}<br>
+                  Right: ${rectInfo.right}<br>
+                  Bottom: ${rectInfo.bottom}<br>
+                  Width: ${rectInfo.width}<br>
+                  Height: ${rectInfo.height}<br>`
+})
+*/
+const fieldCords = field.getBoundingClientRect()
+const info = document.querySelector('.info')
+const metka = document.querySelector('.metka')
+ball.addEventListener('mousedown', (event) => {
+    let shiftX = event.clientX - ball.getBoundingClientRect().left
+    let shiftY = event.clientY - ball.getBoundingClientRect().top
+    let currentDroppable = null
+    ball.ondragstart = function () {
+        return false
+    }
+    const moveAt = (x, y) => {
+        let left = x - fieldCords.left - field.clientLeft - shiftX
+        let top = y - fieldCords.top - field.clientTop - shiftY
+        ball.style.zIndex = '1000'
+        info.innerHTML = `x:${x}<br>
+                          y:${y}<br>
+                          fieldCords.left:${fieldCords.left}<br>
+                          fieldCords.top:${fieldCords.top}<br>
+                          left:${left}<br>
+                          top:${top}<br>
+                          field.clientWidth:${field.clientWidth}<br>
+                          field.clientHeight:${field.clientHeight}<br>
+                          event.pageX:${event.pageX}<br>
+                          event.pageY:${event.pageY}<br>`
+        if (left < 0) left = 0
+        if (top < 0) top = 0
+        if (left + ball.clientWidth > field.clientWidth) {
+            left = field.clientWidth - ball.clientWidth
+        }
+        if (top + ball.clientHeight > field.clientHeight) {
+            top = field.clientHeight - ball.clientHeight
+        }
+        ball.style.left = left + 'px'
+        ball.style.top = top + 'px'
+    }
+
+    function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY)
+        ball.hidden = true
+        let elemBelow = document.elementFromPoint(event.clientX, event.clientY)
+        ball.hidden = false
+        const leaveDroppable = (currentItem) => {
+            if (currentItem.tagName === 'DIV') {
+                currentItem.style.background = '#fff'
+            } else {
+                currentItem.src = 'jsBase/images/3.png'
+            }
+
+        }
+        const enterDroppable = (currentItem) => {
+            if (currentItem.tagName === 'DIV') {
+                currentItem.style.background = '#000'
+            } else {
+                currentItem.src = 'jsBase/images/4.png'
+            }
+        }
+        if (!elemBelow) return
+        let droppableBelow = elemBelow.closest('.droppable')
+        if (currentDroppable != droppableBelow) {
+            if (currentDroppable) {
+                leaveDroppable(currentDroppable)
+            }
+            currentDroppable = droppableBelow
+            if (currentDroppable) {
+                enterDroppable(currentDroppable)
+            }
+        }
+    }
+
+    document.addEventListener('mousemove', onMouseMove)
+
+    document.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove)
+        document.onmouseup = null
+    }
+})
+
+
+const slider = document.querySelector('.slider')
+const thumb = document.querySelector('.thumb')
+const info2 = document.querySelector('.info_2')
+const sliderCoords = slider.getBoundingClientRect()
+thumb.addEventListener('pointerdown', (event) => {
+    let shiftX = event.clientX - thumb.getBoundingClientRect().left
+    thumb.ondragstart = function () {
+        return false
+    }
+    const moveAt = (x) => {
+        let left = x - sliderCoords.left - slider.clientLeft - shiftX
+        if (left < 5) left = 5
+        if (left > 185) left = 185
+        thumb.style.left = left + 'px'
+    }
+    const onMouseMove = (event) => {
+        moveAt(event.pageX)
+    }
+    document.addEventListener('pointermove', onMouseMove)
+    document.onpointerup = function () {
+        document.removeEventListener('pointermove', onMouseMove)
+        document.onmouseup = null
+    }
+})
+
+const heroes = document.querySelector('.football-hero__hero')
+const hero1 = document.querySelector('.hero1')
+const gateLeft = document.querySelector('.gate_1')
+const gateRight = document.querySelector('.gate_2')
+
+heroes.addEventListener('mousedown', (event) => {
+    let target = event.target.closest('.draggable')
+    let currentDroppable = null
+    let shiftX = event.clientX - target.getBoundingClientRect().left
+    let shiftY = event.clientY - target.getBoundingClientRect().top
+    target.ondragstart = function () {
+        return false
+    }
+    const moveAt = (x, y) => {
+        target.style.position = 'absolute'
+        target.style.zIndex = '1000'
+        let left = x - shiftX
+        let top = y - shiftY
+        info2.innerHTML = `fieldCords.left:${sliderCoords.left}<br>
+                          fieldCords.top:${sliderCoords.top}<br>
+                          left:${left}<br>
+                          top:${top}<br>
+                          field.clientWidth:${slider.clientWidth}<br>
+                          field.clientHeight:${slider.clientHeight}<br>
+                          pageX:${x}<br>
+                          pageY:${y}<br>
+                          document.documentElement.clientWidth:${document.documentElement.clientWidth}<br>
+                          document.documentElement.clientHeight:${document.documentElement.clientHeight}<br>
+                          window.pageYOffset:${window.pageYOffset}<br>
+                          ${document.documentElement.scrollHeight}<br>
+                          ${document.documentElement.scrollHeight - (document.documentElement.scrollHeight - document.documentElement.clientHeight - window.pageYOffset) - document.documentElement.clientHeight}<br>
+                          ${document.documentElement.scrollHeight - (document.documentElement.scrollHeight - document.documentElement.clientHeight - window.pageYOffset)}`
+        if (left < 0) left = 0
+        if (top < document.documentElement.scrollHeight - (document.documentElement.scrollHeight - document.documentElement.clientHeight - window.pageYOffset) - document.documentElement.clientHeight) top = document.documentElement.scrollHeight - (document.documentElement.scrollHeight - document.documentElement.clientHeight - window.pageYOffset) - document.documentElement.clientHeight
+        if (top > document.documentElement.scrollHeight - (document.documentElement.scrollHeight - document.documentElement.clientHeight - window.pageYOffset) - target.offsetHeight) top = document.documentElement.scrollHeight - (document.documentElement.scrollHeight - document.documentElement.clientHeight - window.pageYOffset) - target.offsetHeight
+        if (left > document.documentElement.clientWidth - target.offsetWidth) left = document.documentElement.clientWidth - target.offsetWidth
+        target.style.left = left + 'px'
+        target.style.top = top + 'px'
+    }
+    const onMouseMove = (event) => {
+        moveAt(event.pageX, event.pageY)
+        if (target.classList.contains('ball')) {
+            target.hidden = true
+            let elemBelow = document.elementFromPoint(event.clientX, event.clientY)
+            target.hidden = false
+
+            if (!elemBelow) return
+
+            let droppableBelow = elemBelow.closest('.droppable')
+            const leaveDroppable = (droppable) => {
+                droppable.style.background = '#fff'
+            }
+            const enterDroppable = (droppable) => {
+                droppable.style.background = '#000'
+            }
+
+            if (currentDroppable != droppableBelow) {
+                if (currentDroppable) {
+                    leaveDroppable(currentDroppable)
+                }
+                currentDroppable = droppableBelow
+                if (currentDroppable) {
+                    enterDroppable(currentDroppable)
+                }
+            }
+        }
+    }
+    document.addEventListener('mousemove', onMouseMove)
+    document.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove)
+        document.onmouseup = null
+        target.style.zIndex = '500'
+    }
+})
+//  МОДАЛЬНОЕ ОКНО
+const modal = document.querySelector("#modal"),
+    modalOverlay = document.querySelector("#modal-overlay"),
+    closeButton = document.querySelector("#closeButton"),
+    openButton = document.querySelector("#open-button")
+
+closeButton.addEventListener("click", function () {
+    modal.classList.toggle("modal-closed");
+    modalOverlay.classList.toggle("modal-closed");
+})
+openButton.addEventListener("click", function () {
+    modal.classList.toggle("modal-closed");
+    modalOverlay.classList.toggle("modal-closed");
+})
+//
+document.addEventListener('keydown', (event) => {
+    if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+        alert('Отменить!')
+    }
+})
+////////////////////////////////////////////////////////////////////////////////////
+
+const runOnKeys = (func, ...codes) => {
+    const pressed = new Set()
+    document.addEventListener('keydown', (event) => {
+        pressed.add(event.code)
+
+        for (code of codes) {
+            if (!pressed.has(code)) return
+        }
+
+        pressed.clear()
+        func()
+    })
+    document.addEventListener('keyup', function (event) {
+        pressed.delete(event.code)
+    })
+}
+
+runOnKeys(() => alert('Все получилось!'), 'KeyQ', 'KeyW')
