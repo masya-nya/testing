@@ -1,0 +1,9 @@
+#canvas {
+    display: block;
+    border: 5px solid #000;
+}
+.info {
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+}

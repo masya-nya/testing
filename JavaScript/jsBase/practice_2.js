@@ -1056,3 +1056,50 @@ const runOnKeys = (func, ...codes) => {
 }
 
 runOnKeys(() => alert('Все получилось!'), 'KeyQ', 'KeyW')
+///////////////////////////////////////////////////////////////////////////////////
+const form = document.forms.form
+const fieldset = form.elements.userFields
+const input_1 = form.elements.info_1
+const input_2 = form.elements.info_2
+const input_3 = form.elements.info_3
+const bilo = document.querySelector('.graffik-1__number')
+const stalo = document.querySelector('.graffik-2__number')
+const blue = document.querySelector('.graffik-2__img')
+const red = document.querySelector('.graffik-1__img')
+let doo
+let posle
+
+const kredit = (depozit, srok, procent) => {
+    let sum
+    sum = Math.trunc(+depozit + (depozit * srok * procent / 100))
+    return sum
+}
+const otnosheniye = (a, b) => {
+    return a / b
+}
+input_1.addEventListener('input', () => {
+    doo = input_1.value
+    posle = kredit(input_1.value, input_2.value / 12, input_3.value)
+    bilo.innerHTML = doo
+    stalo.innerHTML = posle
+    blue.style.height = Math.trunc(+getComputedStyle(red).height.slice(0, -2) * otnosheniye(posle, doo)) + 'px'
+})
+input_2.addEventListener('input', () => {
+    doo = input_1.value
+    posle = kredit(input_1.value, input_2.value / 12, input_3.value)
+    stalo.innerHTML = posle
+    blue.style.height = Math.trunc(+getComputedStyle(red).height.slice(0, -2) * otnosheniye(posle, doo)) + 'px'
+})
+input_3.addEventListener('input', () => {
+    doo = input_1.value
+    posle = kredit(input_1.value, input_2.value / 12, input_3.value)
+    stalo.innerHTML = posle
+    blue.style.height = Math.trunc(+getComputedStyle(red).height.slice(0, -2) * otnosheniye(posle, doo)) + 'px'
+})
+/*
+const imgDOM = document.querySelector('.image')
+document.addEventListener('DOMContentLoaded', () => {
+    alert('DOM загружен')
+    alert(`${imgDOM.offsetHeight}, ${imgDOM.offsetWidth}`)
+})
+*/

@@ -4,13 +4,8 @@ html {
     height: 2000px;
 }
 */
-#body {
-    
-}
 .block {
     display: none;
-}
-.football {
 }
 .football_field {
     position: relative;
@@ -95,6 +90,42 @@ html {
     position: absolute;
     top: 32%;
     left: 98%;
+}
+.kredit {
+    display: flex;
+}
+.graffiki {
+    display: flex;
+}
+.graffik-1 {
+    padding: 10px;
+}
+.graffik-1__text {
+    font-weight: 700;
+    text-align: center;
+}
+.graffik-1__number {
+    text-align: center;
+}
+.graffik-1__img {
+    width: 45px;
+    height: 100px;
+    background-color: red;
+}
+.graffik-2 {
+    padding: 10px;
+}
+.graffik-2__text {
+    font-weight: 700;
+    text-align: center;
+}
+.graffik-2__number {
+    text-align: center;
+}
+.graffik-2__img {
+    width: 45px;
+    height: 100px;
+    background-color: blue;
 }
 
 /*

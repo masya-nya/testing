@@ -22,6 +22,44 @@
         <div class="slider">
             <div class="thumb"></div>
         </div>
+        <button id="open-button">
+            Открыть модальное окно
+        </button>
+        <div class="kredit">
+            <form name="form">
+                <fieldset name="userFields">
+                    <legend>Депозитный калькулятор</legend>
+                    <p><label for="info_1">Первоначальный депозит</label><input name="info_1" id="info_1" type="number"
+                            value="10000">
+                    </p>
+                    <p><label for="info_2">Срок вклада</label>
+                        <select name="info_2" id="info_2">
+                            <option value="3">3(минимум)</option>
+                            <option value="6">6(полгода)</option>
+                            <option value="12">12(год)</option>
+                            <option value="18">18(полтора года)</option>
+                            <option value="24">24(2 года)</option>
+                            <option value="30">30(2.5 года)</option>
+                            <option value="36">36(3 года)</option>
+                            <option value="60">60(5 лет)</option>
+                        </select>
+                    <p><label for="info_3">Годовая процентная ставка</label><input id="info_3" type="number" value="5">
+                    </p>
+                </fieldset>
+            </form>
+            <div class="graffiki">
+                <div class="graffik-1">
+                    <div class="graffik-1__text">Было</div>
+                    <div class="graffik-1__number">10000</div>
+                    <div class="graffik-1__img"></div>
+                </div>
+                <div class="graffik-2">
+                    <div class="graffik-2__text">Стало</div>
+                    <div class="graffik-2__number">10125</div>
+                    <div class="graffik-2__img"></div>
+                </div>
+            </div>
+        </div>
         <span class="info_2"></span>
         <div class="football-hero">
             <div class="football-hero__field">
@@ -38,6 +76,7 @@
                 <img class="ball draggable hero" src="jsBase/images/ball.png">
             </div>
         </div>
+        <img class="image" src="jsBase/images/cat_1.png" alt="cat">
         <!--
         <div class="layer_1">
             <div class="layer_2">
@@ -113,9 +152,7 @@
             -->
         </p>
     </div>
-    <button id="open-button">
-        Открыть модальное окно
-    </button>
+
     <div class="modal-closed modal" id="modal">
         <button class="modal__button" id="closeButton">Close</button>
         <div class="modal__guts">
