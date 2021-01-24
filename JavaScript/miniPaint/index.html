@@ -15,11 +15,18 @@
     <div class="settings">
         <form name="settings-form" action="">
             <fieldset name="settings-fieldset">
+                <label for="settings-tools">Инструмент:</label>
+                <select name="settings-tools" id="settings-tools">
+                    <option value="brush">Кисть</option>
+                    <option value="pensil">Карандаш</option>
+                    <option value="pipette">Пипетка</option>
+                </select>
                 <label for="settings-color">Цвет:</label>
                 <input id="settings-color" type="color">
                 <label for="settings-size">Размер:</label>
                 <input id="settings-size" type="number" value="10">
                 <input id="settings-refresh" type="button" value="Очистить">
+                <input id="settings-eraser" type="button" value="Ластик">
             </fieldset>
         </form>
     </div>
