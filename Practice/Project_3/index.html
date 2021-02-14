@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="images/icons/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -12,18 +13,8 @@
     <link rel="stylesheet" href="CSS/style.css">
     <title>Porfolio</title>
 </head>
-<header class="header">
+<header id="top" class="header">
 
-    <div class="header__container container-fluid">
-        <div class="row">
-            <div class="col-4">
-
-            </div>
-            <div class="header__title col-8">
-                Hi, My Name is Lauren Hernandez
-            </div>
-        </div>
-    </div>
 </header>
 <div class="wrapper">
     <section class="nav">
@@ -34,25 +25,25 @@
             <nav class="nav__menu menu">
                 <ul class="menu__body">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#about">About</a>
                     </li>
                     <li>
-                        <a href="#">Portfolio</a>
+                        <a href="#portfolio">Portfolio</a>
                     </li>
                     <li>
-                        <a href="#">Experience</a>
+                        <a href="#experience">Experience</a>
                     </li>
                     <li>
-                        <a href="#">Clients</a>
+                        <a href="#clients">Clients</a>
                     </li>
                     <li>
-                        <a href="#">Testimonial</a>
+                        <a href="#testimonials">Testimonial</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#contact">Contact</a>
                     </li>
                     <li>
-                        <a class="arrow" href="#">Top</a>
+                        <a class="arrow" href="#top">Top</a>
                     </li>
                 </ul>
             </nav>
@@ -72,6 +63,30 @@
             </div>
         </div>
     </section>
+    <section class="nav-phone">
+        <div class="nav-phone__container container">
+            <ul class="nav-phone__menu">
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#portfolio">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+                <li>
+                    <a href="#clients">Clients</a>
+                </li>
+                <li>
+                    <a href="#testimonials">Testimonial</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </section>
     <section class="about-me">
         <div class="about-me__container container-fluid">
             <div class="row">
@@ -79,10 +94,14 @@
 
                 </div>
                 <div class="about-me__body col">
-                    <div class="about-me__title-up">
-                        I draw lines & shapes with colors and make them awesome!
+                    <div class="about-me__icon-phone">
+                        <img src="images/pictures/profile_photo.jpg" alt="profile_photo">
                     </div>
-                    <div class="about-me__title-down title">
+                    <div class="about-me__title-up">
+                        <h1>Hi, My Name is Lauren Hernandez</h1>
+                        <p>I draw lines & shapes with colors and make them awesome!</p>
+                    </div>
+                    <div id="about" class="about-me__title-down title">
                         About me
                     </div>
                     <hr>
@@ -184,7 +203,7 @@
             </div>
         </div>
     </section>
-    <section class="portfolio">
+    <section id="portfolio" class="portfolio">
         <div class="portfolio__container container-fluid">
             <div class="row">
                 <div class="col-4">
@@ -204,7 +223,7 @@
                     </ul>
                     <div class="portfolio__gallery gallery">
                         <div class="gallery__item category-photography category-poster">
-                            <a href="#">
+                            <a>
                                 <img src="images/pictures/22.jpg" alt="img_1">
                                 <div class="gallery__item-shadow">
                                     <div class="gallery__item-icon-position">
@@ -214,7 +233,7 @@
                             </a>
                         </div>
                         <div class="gallery__item category-logo">
-                            <a href="#">
+                            <a>
                                 <img src="images/pictures/23.jpg" alt="img_2">
                                 <div class="gallery__item-shadow">
                                     <div class="gallery__item-icon-position">
@@ -224,7 +243,7 @@
                             </a>
                         </div>
                         <div class="gallery__item category-web">
-                            <a href="#">
+                            <a>
                                 <img src="images/pictures/24.jpg" alt="img_3">
                                 <div class="gallery__item-shadow">
                                     <div class="gallery__item-icon-position">
@@ -234,7 +253,7 @@
                             </a>
                         </div>
                         <div class="gallery__item category-branding">
-                            <a href="#">
+                            <a>
                                 <img src="images/pictures/25.jpg" alt="img_4">
                                 <div class="gallery__item-shadow">
                                     <div class="gallery__item-icon-position">
@@ -244,7 +263,7 @@
                             </a>
                         </div>
                         <div class="gallery__item category-branding">
-                            <a href="#">
+                            <a>
                                 <img src="images/pictures/26.jpg" alt="img_5">
                                 <div class="gallery__item-shadow">
                                     <div class="gallery__item-icon-position">
@@ -254,7 +273,7 @@
                             </a>
                         </div>
                         <div class="gallery__item category-photography category-poster">
-                            <a href="#">
+                            <a>
                                 <img src="images/pictures/27.jpg" alt="img_6">
                                 <div class="gallery__item-shadow">
                                     <div class="gallery__item-icon-position">
@@ -274,7 +293,7 @@
             </div>
         </div>
     </section>
-    <section class="experience">
+    <section id="experience" class="experience">
         <div class="experience__container container-fluid">
             <div class="row">
                 <div class="col-4">
@@ -344,7 +363,7 @@
             </div>
         </div>
     </section>
-    <section class="clients">
+    <section id="clients" class="clients">
         <div class="clients__container container-fluid">
             <div class="row">
                 <div class="col-4">
@@ -376,7 +395,7 @@
             </div>
         </div>
     </section>
-    <section class="testimonials">
+    <section id="testimonials" class="testimonials">
         <div class="testimonials__container container-fluid">
             <div class="row">
                 <div class="col-4">
@@ -466,7 +485,7 @@
             </div>
         </div>
     </section>
-    <section class="contact">
+    <section id="contact" class="contact">
         <div class="contact__container container-fluid">
             <div class="row">
                 <div class="col-4">
@@ -498,6 +517,16 @@
             </div>
         </div>
     </section>
+</div>
+<div class="modal-gallery__shadow">
+    <div class="modal-gallery">
+        <div class="modal-gallery-position">
+            <p class="modal-gallery__btn-close"></p>
+            <div class="modal-gallery__body">
+                <img class="modal-gallery__img" src="images/pictures/23.jpg" alt="modal-image">
+            </div>
+        </div>
+    </div>
 </div>
 <footer class="footer">
     <div class="footer__container container-fluid">
@@ -534,6 +563,7 @@
         </div>
     </div>
 </footer>
+
 
 <body>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

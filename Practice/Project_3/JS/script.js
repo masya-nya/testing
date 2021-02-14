@@ -88,3 +88,20 @@ galleryNav.addEventListener('click', (e) => {
         }
     }
 })
+
+const galleryItemActive = document.querySelectorAll('.gallery__item-icon')
+const modal = document.querySelector('.modal-gallery__shadow')
+const modalImg = document.querySelector('.modal-gallery__img')
+const modalBtnClose = document.querySelector('.modal-gallery__btn-close')
+for (item of galleryItemActive) {
+    let parent = item.parentElement.parentElement.parentElement
+    let child = parent.querySelector('img')
+    let src = child.getAttribute('src')
+    item.addEventListener('click', () => {
+        modalImg.src = src
+        modal.style.display = 'block'
+    })
+}
+modalBtnClose.addEventListener('click', () => {
+    modal.style.display = 'none'
+})
