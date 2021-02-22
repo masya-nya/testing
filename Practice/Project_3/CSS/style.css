@@ -714,6 +714,18 @@ hr {
 
 /*--------------------------------------------*/
 /* МЕДИА ЗАПРОСЫ */
+@media (max-height: 780px) {
+  .menu__body {
+    padding: 0px;
+  }
+  .menu__body li {
+    padding: 5px 0 10px 0;
+  }
+
+  .nav {
+    top: 7%;
+  }
+}
 @media (max-width: 1800px) {
   .about-me__title-up h1 {
     font-size: 45px;
